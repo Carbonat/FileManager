@@ -54,5 +54,10 @@ namespace _0001_Forms
             fmActions.UpClick(listView2, ref currentPath[1]);
         }
 
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

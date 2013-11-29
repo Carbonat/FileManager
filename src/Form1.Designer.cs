@@ -34,13 +34,13 @@
             this.name_listView1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type_listView1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastWriteTime_listView1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.listView2 = new System.Windows.Forms.ListView();
             this.name_listView2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type_listView2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastWriteTime_listView2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.up_listView1 = new System.Windows.Forms.Button();
             this.up_listView2 = new System.Windows.Forms.Button();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // listView1
@@ -74,6 +74,15 @@
             this.lastWriteTime_listView1.Text = "Час останніх змін";
             this.lastWriteTime_listView1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lastWriteTime_listView1.Width = 124;
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "local drive.ico");
+            this.imageList.Images.SetKeyName(1, "directory.ico");
+            this.imageList.Images.SetKeyName(2, "file.ico");
+            this.imageList.Images.SetKeyName(3, "textFile.ico");
             // 
             // listView2
             // 
@@ -126,14 +135,6 @@
             this.up_listView2.Text = "Вгору";
             this.up_listView2.UseVisualStyleBackColor = true;
             this.up_listView2.Click += new System.EventHandler(this.up_listView2_Click);
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "local drive.ico");
-            this.imageList.Images.SetKeyName(1, "directory.ico");
-            this.imageList.Images.SetKeyName(2, "file.ico");
             // 
             // FileManager
             // 

@@ -11,7 +11,13 @@ namespace _0001_Forms
     class FileManagerActions
     {
         public const char DOT = '.';
+        public const string TXT = "txt";
         public const int FIRST_ELEMENT = 0;
+        public const int LOCAL_DISK_ICON = 0;
+        public const int DIRECTORY_ICON = 1;
+        public const int FILE_ICON = 2;
+        public const int TEXT_FILE_ICON = 3;
+
 
         public void CreateList(ListView list)
         {
@@ -23,6 +29,7 @@ namespace _0001_Forms
                 ListViewItem listViewItem = new ListViewItem();
                 ListViewItem.ListViewSubItem listViewSubItems = new ListViewItem.ListViewSubItem();
                 listViewItem.Text = driver.Name;
+                listViewItem.ImageIndex = LOCAL_DISK_ICON;
                 listViewSubItems.Text = driver.DriveType.ToString();
                 listViewItem.SubItems.Add(listViewSubItems);
                 list.Items.Add(listViewItem);
@@ -51,6 +58,7 @@ namespace _0001_Forms
                 ListViewItem.ListViewSubItem listViewSubItems1 = new ListViewItem.ListViewSubItem();
                 ListViewItem.ListViewSubItem listViewSubItems2 = new ListViewItem.ListViewSubItem();
                 listViewItem.Text = folderinfo.Name;
+                listViewItem.ImageIndex = DIRECTORY_ICON;
                 listViewSubItems1.Text = "";
                 listViewSubItems2.Text = folderinfo.LastWriteTime.ToString();
                 listViewItem.SubItems.Add(listViewSubItems1);
@@ -62,6 +70,7 @@ namespace _0001_Forms
             FileInfo[] files = dir.GetFiles();
             string nameWithExtension;
             string extensionWithDot;
+            string extensionWithoutDot;
             int indexOfDot;
              
             foreach (FileInfo fileinfo in files)
@@ -79,8 +88,19 @@ namespace _0001_Forms
                 {
                     listViewItem.Text = nameWithExtension;
                 }
+                
                 extensionWithDot = fileinfo.Extension;
-                listViewSubItems1.Text = extensionWithDot.TrimStart(DOT);
+                extensionWithoutDot = extensionWithDot.TrimStart(DOT);
+                if (extensionWithoutDot.Equals(TXT))
+                {
+                    listViewItem.ImageIndex = TEXT_FILE_ICON;
+                }
+                else
+                {
+                    listViewItem.ImageIndex = FILE_ICON;
+                }
+
+                listViewSubItems1.Text = extensionWithoutDot;
                 listViewSubItems2.Text = fileinfo.LastWriteTime.ToString();
                 listViewItem.SubItems.Add(listViewSubItems1);
                 listViewItem.SubItems.Add(listViewSubItems2);
