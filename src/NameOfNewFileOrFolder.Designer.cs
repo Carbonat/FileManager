@@ -48,7 +48,7 @@
             this.okButton.TabIndex = 1;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.button1_Click);
+            this.okButton.Click += new System.EventHandler(this.okButton1_Click);
             // 
             // cancelButton
             // 
@@ -58,6 +58,7 @@
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Скасувати";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // NameOfNewFileOrFolder
             // 

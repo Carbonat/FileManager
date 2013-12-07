@@ -90,7 +90,7 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(127, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 48);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // createToolStripMenuItem
@@ -99,7 +99,7 @@
             this.folderToolStripMenuItem,
             this.textFileToolStripMenuItem});
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createToolStripMenuItem.Text = "Створити";
             // 
             // folderToolStripMenuItem
@@ -114,6 +114,7 @@
             this.textFileToolStripMenuItem.Name = "textFileToolStripMenuItem";
             this.textFileToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.textFileToolStripMenuItem.Text = "Текстовий файл";
+            this.textFileToolStripMenuItem.Click += new System.EventHandler(this.createTextFileToolStripMenuItem_Clic);
             // 
             // imageList
             // 

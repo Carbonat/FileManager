@@ -16,48 +16,66 @@ namespace _0001_Forms
         private const int MAX_PATH = 260;
         private const string WRONG_SYMBOLS_WARNING = "Ім'я не може містити \\ / : * ? \" < > | \nБути пустим чи містити лише пропуски.";
         private const string LONG_NAME_WARNING = "Ім'я не може складатися з більше ніж більше 260 символів.";
+        public const int FOLDER = 0;
+        public const int TEXT_FILE = 1;
 
         FileManagerActions fmAction = new FileManagerActions();
         private char[] forbiddenSymbols = { '\\', '/', ':', '*', '?', '"', '<', '>', '|' }; 
         static public string NewName { get; set; }
         private string currentPath = "";
+        private int typeCreationObject = -1;
 
         public NameOfNewFileOrFolder()
         {
             InitializeComponent();
         }
 
-        public NameOfNewFileOrFolder(string title, string path)
+        public NameOfNewFileOrFolder(string title, string path, int type)
         {
             InitializeComponent();
             this.Text = title;
             currentPath = path;
+            typeCreationObject = type;
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void okButton1_Click(object sender, EventArgs e)
         {
             string name;
-            do
+            name = textBox1.Text;
+            bool isNameOK = isPossibleName(name);
+            if (isNameOK)
             {
-                name = textBox1.Text;
+                NewName = name;
+                Close();
             }
-            while (!isPossibleName(name));
-            NewName = name;
-            this.Close();
         }
 
         private bool isPossibleName(string name)
         {
             bool isCorrectName;
-            bool isFolderAlreadyCreated;
-            string fullName = currentPath + name + "\\";
+            bool isObjectAlreadyCreated;
+            string fullName = currentPath + name;
             
             isCorrectName = CheckName(name);
-            isFolderAlreadyCreated =  Directory.Exists(fullName);
-            if(isCorrectName && !isFolderAlreadyCreated)
+            if (typeCreationObject == FOLDER)
+            {
+                fullName += "\\";
+                isObjectAlreadyCreated = Directory.Exists(fullName);
+            }
+            else
+            {
+                fullName += ".txt";
+                isObjectAlreadyCreated = File.Exists(fullName);
+            }
+
+            if(isCorrectName && !isObjectAlreadyCreated)
             {
                 return true;
+            }
+            if (isObjectAlreadyCreated)
+            {
+                MessageBox.Show("Папка/файл з таким іменем вже існує", "Увага");
             }
             if (fullName.Length > MAX_PATH)
             {
@@ -82,5 +100,11 @@ namespace _0001_Forms
             }
             return true;
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

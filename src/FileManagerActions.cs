@@ -18,6 +18,8 @@ namespace _0001_Forms
         public const int DIRECTORY_ICON = 1;
         public const int FILE_ICON = 2;
         public const int TEXT_FILE_ICON = 3;
+        public const int FOLDER = 0;
+        public const int TEXT_FILE = 1;
        
 
 
@@ -177,23 +179,41 @@ namespace _0001_Forms
         public void CreateFolder(string path)
         {
             string title = "Створення папки";
-            NameOfNewFileOrFolder form = new NameOfNewFileOrFolder(title, path);
+            string name;
+            NameOfNewFileOrFolder form = new NameOfNewFileOrFolder(title, path, FOLDER);
             form.ShowDialog();
-
-            string fullPath = path + NameOfNewFileOrFolder.NewName + "\\";
+            name = NameOfNewFileOrFolder.NewName;
+            string fullPath = path + NameOfNewFileOrFolder.NewName + "\\";            
             try
             {
                 Directory.CreateDirectory(fullPath);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Дану папку захищено від запису операційною системою.", "Попередження");
+                MessageBox.Show("Дану папку захищено від змін операційною системою.", "Попередження");
             }
-
-
         }
 
-        
+        public void CreateTextFile(string path)
+        {
+            
+            string title = "Створення текстового файлу";
+            string name;
+            NameOfNewFileOrFolder form = new NameOfNewFileOrFolder(title, path, TEXT_FILE);
+            form.ShowDialog();
+            name = NameOfNewFileOrFolder.NewName;
+            string fullPath = path + NameOfNewFileOrFolder.NewName + "." + txt;
+
+            try
+            {
+                File.Create(fullPath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Дану папку захищено від змін операційною системою.", "Попередження");
+            }
+        }
+   
 
     }
 }

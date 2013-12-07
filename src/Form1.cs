@@ -116,12 +116,26 @@ namespace _0001_Forms
             fmActions.ChangeList(allListViews[selectedList], currentPath[selectedList]);
         }
 
+        private void createTextFileToolStripMenuItem_Clic(object sender, EventArgs e)
+        {
+            fmActions.CreateTextFile(currentPath[selectedList]);
+            fmActions.ChangeList(allListViews[selectedList], currentPath[selectedList]);
+        }
+
         private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
             FileSystemWatcher fsw = sender as FileSystemWatcher;
             int index = Array.IndexOf(currentPath, fsw.Path);
             fmActions.ChangeList(allListViews[index], currentPath[index]);
+            
+            //костыль
+            if (currentPath[0].Equals(currentPath[1]))
+            {
+                fmActions.ChangeList(allListViews[1], currentPath[1]);
+            }
         }
+
+       
 
     }
 }
