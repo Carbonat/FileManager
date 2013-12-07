@@ -11,12 +11,14 @@ namespace _0001_Forms
     class FileManagerActions
     {
         public const char DOT = '.';
-        public const string TXT = "txt";
+        public const string txt = "txt";
+        public const string TXT = "TXT";
         public const int FIRST_ELEMENT = 0;
         public const int LOCAL_DISK_ICON = 0;
         public const int DIRECTORY_ICON = 1;
         public const int FILE_ICON = 2;
         public const int TEXT_FILE_ICON = 3;
+       
 
 
         public void CreateList(ListView list)
@@ -79,7 +81,7 @@ namespace _0001_Forms
                 ListViewItem.ListViewSubItem listViewSubItems1 = new ListViewItem.ListViewSubItem();
                 ListViewItem.ListViewSubItem listViewSubItems2 = new ListViewItem.ListViewSubItem();
                 nameWithExtension = fileinfo.Name;
-                indexOfDot = nameWithExtension.IndexOf(DOT);
+                indexOfDot = nameWithExtension.LastIndexOf(DOT);
                 if (indexOfDot > 0)
                 {
                     listViewItem.Text = nameWithExtension.Remove(indexOfDot);
@@ -91,7 +93,7 @@ namespace _0001_Forms
                 
                 extensionWithDot = fileinfo.Extension;
                 extensionWithoutDot = extensionWithDot.TrimStart(DOT);
-                if (extensionWithoutDot.Equals(TXT))
+                if (extensionWithoutDot.Equals(TXT) || extensionWithoutDot.Equals(txt))
                 {
                     listViewItem.ImageIndex = TEXT_FILE_ICON;
                 }
@@ -160,7 +162,7 @@ namespace _0001_Forms
             }
         }
 
-        public void Double_Click(ListView list, ref String path)
+        public void Mouse_DoubleClick(ListView list, ref String path)
         {
             string item = list.SelectedItems[FIRST_ELEMENT].Text;
             string triedOpenDir = path + item + "\\";
@@ -171,5 +173,27 @@ namespace _0001_Forms
                 ChangeList(list, path);
             }
         }
+
+        public void CreateFolder(string path)
+        {
+            string title = "Створення папки";
+            NameOfNewFileOrFolder form = new NameOfNewFileOrFolder(title, path);
+            form.ShowDialog();
+
+            string fullPath = path + NameOfNewFileOrFolder.NewName + "\\";
+            try
+            {
+                Directory.CreateDirectory(fullPath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Дану папку захищено від запису операційною системою.", "Попередження");
+            }
+
+
+        }
+
+        
+
     }
 }
