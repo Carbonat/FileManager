@@ -20,6 +20,7 @@ namespace _0001_Forms
         public const int TEXT_FILE_ICON = 3;
         public const int FOLDER = 0;
         public const int TEXT_FILE = 1;
+        public const int DRIVE_NAME_LENGTH = 4;
        
 
 
@@ -212,6 +213,19 @@ namespace _0001_Forms
             {
                 MessageBox.Show("Дану папку захищено від змін операційною системою.", "Попередження");
             }
+        }
+
+        public void GetInfo(ListView list, string path)
+        {
+            string item = list.SelectedItems[FIRST_ELEMENT].Text;
+            if (item.Length == DRIVE_NAME_LENGTH)
+            {
+
+            }
+            string triedOpenDir = path + item + "\\";
+            
+
+
         }
    
 

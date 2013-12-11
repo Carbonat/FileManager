@@ -38,6 +38,7 @@
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
             this.name_listView2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,9 +48,13 @@
             this.up_listView1 = new System.Windows.Forms.Button();
             this.fileSystemWatcher0 = new System.IO.FileSystemWatcher();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView0
@@ -59,9 +64,9 @@
             this.type_listView1,
             this.lastWriteTime_listView1});
             this.listView0.ContextMenuStrip = this.contextMenuStrip;
-            this.listView0.Location = new System.Drawing.Point(12, 44);
+            this.listView0.Location = new System.Drawing.Point(12, 63);
             this.listView0.Name = "listView0";
-            this.listView0.Size = new System.Drawing.Size(385, 419);
+            this.listView0.Size = new System.Drawing.Size(385, 400);
             this.listView0.SmallImageList = this.imageList;
             this.listView0.TabIndex = 0;
             this.listView0.UseCompatibleStateImageBehavior = false;
@@ -88,9 +93,10 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createToolStripMenuItem});
+            this.createToolStripMenuItem,
+            this.infoToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(143, 48);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // createToolStripMenuItem
@@ -99,7 +105,7 @@
             this.folderToolStripMenuItem,
             this.textFileToolStripMenuItem});
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.createToolStripMenuItem.Text = "Створити";
             // 
             // folderToolStripMenuItem
@@ -115,6 +121,13 @@
             this.textFileToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.textFileToolStripMenuItem.Text = "Текстовий файл";
             this.textFileToolStripMenuItem.Click += new System.EventHandler(this.createTextFileToolStripMenuItem_Clic);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.infoToolStripMenuItem.Text = " Властивості";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // imageList
             // 
@@ -132,9 +145,9 @@
             this.type_listView2,
             this.lastWriteTime_listView2});
             this.listView1.ContextMenuStrip = this.contextMenuStrip;
-            this.listView1.Location = new System.Drawing.Point(423, 44);
+            this.listView1.Location = new System.Drawing.Point(423, 63);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(385, 419);
+            this.listView1.Size = new System.Drawing.Size(385, 400);
             this.listView1.SmallImageList = this.imageList;
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -160,7 +173,7 @@
             // 
             // up_listView0
             // 
-            this.up_listView0.Location = new System.Drawing.Point(12, 15);
+            this.up_listView0.Location = new System.Drawing.Point(12, 34);
             this.up_listView0.Name = "up_listView0";
             this.up_listView0.Size = new System.Drawing.Size(54, 23);
             this.up_listView0.TabIndex = 2;
@@ -170,7 +183,7 @@
             // 
             // up_listView1
             // 
-            this.up_listView1.Location = new System.Drawing.Point(423, 15);
+            this.up_listView1.Location = new System.Drawing.Point(423, 34);
             this.up_listView1.Name = "up_listView1";
             this.up_listView1.Size = new System.Drawing.Size(54, 23);
             this.up_listView1.TabIndex = 3;
@@ -194,21 +207,51 @@
             this.fileSystemWatcher1.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Changed);
             this.fileSystemWatcher1.Deleted += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Changed);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textEditorToolStripMenuItem,
+            this.пошукToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(843, 24);
+            this.menuStrip.TabIndex = 4;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // textEditorToolStripMenuItem
+            // 
+            this.textEditorToolStripMenuItem.Name = "textEditorToolStripMenuItem";
+            this.textEditorToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
+            this.textEditorToolStripMenuItem.Text = "Текстовий редактор";
+            this.textEditorToolStripMenuItem.Click += new System.EventHandler(this.textEditorToolStripMenuItem_Click);
+            // 
+            // пошукToolStripMenuItem
+            // 
+            this.пошукToolStripMenuItem.Name = "пошукToolStripMenuItem";
+            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.пошукToolStripMenuItem.Text = "Пошук";
+            // 
             // FileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 475);
+            this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.up_listView1);
             this.Controls.Add(this.up_listView0);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.listView0);
+            this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "FileManager";
             this.Text = "File Manager";
             this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,6 +274,10 @@
         private System.Windows.Forms.ToolStripMenuItem textFileToolStripMenuItem;
         private System.IO.FileSystemWatcher fileSystemWatcher0;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem textEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem пошукToolStripMenuItem;
     }
 }
 

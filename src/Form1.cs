@@ -135,6 +135,17 @@ namespace _0001_Forms
             }
         }
 
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fmActions.GetInfo(allListViews[selectedList], currentPath[selectedList]);
+        }
+
+        private void textEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextEditor editor = new TextEditor();
+            editor.ShowDialog();
+        }
+
        
 
     }
