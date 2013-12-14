@@ -14,11 +14,8 @@ namespace _0001_Forms
     public partial class TextEditor : Form
     {
         private string fileName;
-<<<<<<< HEAD
-        private bool isTextChanged = false;
-=======
         private bool isTextChanged = false; //no changes or they are save
->>>>>>> Correct closing TE with question
+        private string copiedText;
 
 
         public TextEditor()
@@ -28,7 +25,13 @@ namespace _0001_Forms
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            bool openFile = true;
+            if (isTextChanged)
+            {
+                openFile = actionsBeforeExit();//false if user click on Cancel button in AskSaveFileDialog
+            }
+
+            if (openFile && openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 using (StreamReader reader = new StreamReader(openFileDialog.FileName, Encoding.Default))
                 {
@@ -86,11 +89,7 @@ namespace _0001_Forms
 
         private bool actionsBeforeExit()
         {
-<<<<<<< HEAD
-            if (!String.IsNullOrWhiteSpace(fileName) || isTextChanged)
-=======
             if (isTextChanged)
->>>>>>> Correct closing TE with question
             {
                 AskSaveFileDialog askDialog = new AskSaveFileDialog();
                 DialogResult dialogResult = askDialog.ShowDialog();
@@ -119,6 +118,34 @@ namespace _0001_Forms
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             isTextChanged = true;
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(richTextBox.SelectedText))
+            {
+                copiedText = richTextBox.SelectedText;
+            }
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(copiedText))
+            {
+                int selectionStart = richTextBox.SelectionStart;
+                int length = copiedText.Length;
+                richTextBox.Text = richTextBox.Text.Insert(selectionStart, copiedText);
+                richTextBox.SelectionStart = selectionStart + length;
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            copyToolStripMenuItem_Click(sender, e);
+            if (!String.IsNullOrEmpty(copiedText))
+            {
+                richTextBox.SelectedText = String.Empty;
+            }
         }
     }
 }

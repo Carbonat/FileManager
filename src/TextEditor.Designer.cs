@@ -36,9 +36,9 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.текстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.копіюватиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вставитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вирізатиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.спеціальніМоливостіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.частотаСлівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,58 +84,61 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Відкрити";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Зберегти";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Зберегти як";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Вийти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // текстToolStripMenuItem
             // 
             this.текстToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.копіюватиToolStripMenuItem,
-            this.вставитиToolStripMenuItem,
-            this.вирізатиToolStripMenuItem});
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.cutToolStripMenuItem});
             this.текстToolStripMenuItem.Name = "текстToolStripMenuItem";
             this.текстToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.текстToolStripMenuItem.Text = "Текст";
             // 
-            // копіюватиToolStripMenuItem
+            // copyToolStripMenuItem
             // 
-            this.копіюватиToolStripMenuItem.Name = "копіюватиToolStripMenuItem";
-            this.копіюватиToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.копіюватиToolStripMenuItem.Text = "Копіювати";
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Text = "Копіювати";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
-            // вставитиToolStripMenuItem
+            // pasteToolStripMenuItem
             // 
-            this.вставитиToolStripMenuItem.Name = "вставитиToolStripMenuItem";
-            this.вставитиToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.вставитиToolStripMenuItem.Text = "Вставити";
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pasteToolStripMenuItem.Text = "Вставити";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
-            // вирізатиToolStripMenuItem
+            // cutToolStripMenuItem
             // 
-            this.вирізатиToolStripMenuItem.Name = "вирізатиToolStripMenuItem";
-            this.вирізатиToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.вирізатиToolStripMenuItem.Text = "Вирізати";
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cutToolStripMenuItem.Text = "Вирізати";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // спеціальніМоливостіToolStripMenuItem
             // 
@@ -149,13 +152,13 @@
             // пошукToolStripMenuItem
             // 
             this.пошукToolStripMenuItem.Name = "пошукToolStripMenuItem";
-            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.пошукToolStripMenuItem.Text = "Пошук";
             // 
             // частотаСлівToolStripMenuItem
             // 
             this.частотаСлівToolStripMenuItem.Name = "частотаСлівToolStripMenuItem";
-            this.частотаСлівToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.частотаСлівToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.частотаСлівToolStripMenuItem.Text = "Частота слів";
             // 
             // openFileDialog
@@ -194,9 +197,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem текстToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem копіюватиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вставитиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вирізатиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem спеціальніМоливостіToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem пошукToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem частотаСлівToolStripMenuItem;
