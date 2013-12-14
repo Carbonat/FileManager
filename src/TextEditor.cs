@@ -14,6 +14,8 @@ namespace _0001_Forms
     public partial class TextEditor : Form
     {
         private string fileName;
+        private bool isTextChanged = false;
+
 
         public TextEditor()
         {
@@ -45,9 +47,10 @@ namespace _0001_Forms
             }
             else
             {
-                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName, false, Encoding.Default))
+                using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.Default))
                 {
                     writer.Write(richTextBox.Text);
+                    isTextChanged = false;
                 }
             }
 
@@ -60,42 +63,53 @@ namespace _0001_Forms
                 using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName, false, Encoding.Default))
                 {
                     writer.Write(richTextBox.Text);
+                    isTextChanged = false;
                 }
             }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            askAfterClosing();
+            Close();
         }
-
-        private void askAfterClosing()
-        {
-            AskSaveFileDialog askDialog = new AskSaveFileDialog();
-
-            if (askDialog.ShowDialog() == DialogResult.Yes)
-            {
-                saveFile();
-            }
-            else if (askDialog.ShowDialog() == DialogResult.No)
-            {
-                Close();
-            }
-            else if (askDialog.ShowDialog() == DialogResult.Cancel)
-            {
-                askDialog.Close();
-            }
-        }
-
 
         private void TextEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            askAfterClosing();
+            bool notClose = actionsBeforeExit(); 
+            e.Cancel = !notClose;
+        }
+
+        private bool actionsBeforeExit()
+        {
+            if (!String.IsNullOrWhiteSpace(fileName) || isTextChanged)
+            {
+                AskSaveFileDialog askDialog = new AskSaveFileDialog();
+                DialogResult dialogResult = askDialog.ShowDialog();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    saveFile();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    askDialog.Close();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    askDialog.Close();
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveAsFile();
+        }
+
+        private void richTextBox_TextChanged(object sender, EventArgs e)
+        {
+            isTextChanged = true;
         }
     }
 }
