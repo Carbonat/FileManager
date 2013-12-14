@@ -40,7 +40,7 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.спеціальніМоливостіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.частотаСлівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -143,17 +143,18 @@
             // спеціальніМоливостіToolStripMenuItem
             // 
             this.спеціальніМоливостіToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.пошукToolStripMenuItem,
+            this.findToolStripMenuItem,
             this.частотаСлівToolStripMenuItem});
             this.спеціальніМоливостіToolStripMenuItem.Name = "спеціальніМоливостіToolStripMenuItem";
             this.спеціальніМоливостіToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
             this.спеціальніМоливостіToolStripMenuItem.Text = "Спеціальні моливості";
             // 
-            // пошукToolStripMenuItem
+            // findToolStripMenuItem
             // 
-            this.пошукToolStripMenuItem.Name = "пошукToolStripMenuItem";
-            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.пошукToolStripMenuItem.Text = "Пошук";
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.findToolStripMenuItem.Text = "Пошук";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // частотаСлівToolStripMenuItem
             // 
@@ -201,7 +202,7 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem спеціальніМоливостіToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem пошукToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem частотаСлівToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;

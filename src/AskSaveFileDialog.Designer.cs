@@ -88,7 +88,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AskSaveFileDialog";
-            this.Text = "AskSaveFileDialog";
+            this.Text = "Збереження";
             this.ResumeLayout(false);
             this.PerformLayout();
 

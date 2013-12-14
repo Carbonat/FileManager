@@ -147,5 +147,19 @@ namespace _0001_Forms
                 richTextBox.SelectedText = String.Empty;
             }
         }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           string text = richTextBox.Text;
+           if (String.IsNullOrEmpty(text))
+           {
+               MessageBox.Show("Текстовий файл пустий", "Пошук неможливий");
+           }
+           else
+           {
+               FindInTextEditor findDialog = new FindInTextEditor(text);
+               findDialog.ShowDialog();
+           }
+        }
     }
 }

@@ -52,6 +52,12 @@
       <DependentUpon>AskSaveFileDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="FileManagerActions.cs" />
+    <Compile Include="FindInTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindInTextEditor.Designer.cs">
+      <DependentUpon>FindInTextEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="AskSaveFileDialog.resx">
       <DependentUpon>AskSaveFileDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindInTextEditor.resx">
+      <DependentUpon>FindInTextEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
