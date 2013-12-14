@@ -14,7 +14,11 @@ namespace _0001_Forms
     public partial class TextEditor : Form
     {
         private string fileName;
+<<<<<<< HEAD
         private bool isTextChanged = false;
+=======
+        private bool isTextChanged = false; //no changes or they are save
+>>>>>>> Correct closing TE with question
 
 
         public TextEditor()
@@ -30,6 +34,7 @@ namespace _0001_Forms
                 {
                     fileName = openFileDialog.FileName;
                     richTextBox.Text = reader.ReadToEnd();
+                    isTextChanged = false;
                 }
             }
         }
@@ -81,7 +86,11 @@ namespace _0001_Forms
 
         private bool actionsBeforeExit()
         {
+<<<<<<< HEAD
             if (!String.IsNullOrWhiteSpace(fileName) || isTextChanged)
+=======
+            if (isTextChanged)
+>>>>>>> Correct closing TE with question
             {
                 AskSaveFileDialog askDialog = new AskSaveFileDialog();
                 DialogResult dialogResult = askDialog.ShowDialog();
