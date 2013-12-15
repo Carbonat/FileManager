@@ -153,13 +153,27 @@ namespace _0001_Forms
            string text = richTextBox.Text;
            if (String.IsNullOrEmpty(text))
            {
-               MessageBox.Show("Текстовий файл пустий", "Пошук неможливий");
+               MessageBox.Show("Текстовий файл пустий.", "Пошук неможливий");
            }
            else
            {
                FindInTextEditor findDialog = new FindInTextEditor(text);
                findDialog.ShowDialog();
            }
+        }
+
+        private void frequencyWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string text = richTextBox.Text;
+            if (String.IsNullOrWhiteSpace(text))
+            {
+                MessageBox.Show("Текстовий файл пустий.", "Визначення частот неможливе");
+            }
+            else
+            {
+                WordsFrequency wordsFrequency = new WordsFrequency(text);
+                wordsFrequency.ShowDialog();
+            }
         }
     }
 }

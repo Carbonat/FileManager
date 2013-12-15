@@ -61,12 +61,8 @@ namespace _0001_Forms
             {
                 MessageBox.Show("Пошук не дав результатів", "Результати пошуку");
             }
-            
-            int numberOfItems = listView.Items.Count;
-            for (int i = numberOfItems - 1; i >= 0; --i)
-            {
-                listView.Items[i].Remove();
-            }
+
+            listView.Items.Clear();
 
             for (int i = 0; i < numberOfLines; ++i)
             {
@@ -81,8 +77,5 @@ namespace _0001_Forms
                 }
             }
         }
-
-
-
     }
 }

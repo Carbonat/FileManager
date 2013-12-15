@@ -84,6 +84,12 @@
     <Compile Include="TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="WordsFrequency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WordsFrequency.Designer.cs">
+      <DependentUpon>WordsFrequency.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AskSaveFileDialog.resx">
       <DependentUpon>AskSaveFileDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WordsFrequency.resx">
+      <DependentUpon>WordsFrequency.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

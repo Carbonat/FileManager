@@ -49,11 +49,7 @@ namespace _0001_Forms
 
             int numberOfItems = list.Items.Count;
                                 
-            //clear all items in list
-            for (int i = numberOfItems - 1; i >= 0; --i)
-            {
-                list.Items[i].Remove();
-            }
+            list.Items.Clear();
 
             //create list of folders
             DirectoryInfo[] folders = dir.GetDirectories();

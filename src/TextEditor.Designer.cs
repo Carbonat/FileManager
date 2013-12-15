@@ -41,7 +41,7 @@
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.спеціальніМоливостіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.частотаСлівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frequencyWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
@@ -84,28 +84,28 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.openToolStripMenuItem.Text = "Відкрити";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.saveToolStripMenuItem.Text = "Зберегти";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.saveAsToolStripMenuItem.Text = "Зберегти як";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.exitToolStripMenuItem.Text = "Вийти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -122,21 +122,21 @@
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.copyToolStripMenuItem.Text = "Копіювати";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.pasteToolStripMenuItem.Text = "Вставити";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.cutToolStripMenuItem.Text = "Вирізати";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.спеціальніМоливостіToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.findToolStripMenuItem,
-            this.частотаСлівToolStripMenuItem});
+            this.frequencyWordToolStripMenuItem});
             this.спеціальніМоливостіToolStripMenuItem.Name = "спеціальніМоливостіToolStripMenuItem";
             this.спеціальніМоливостіToolStripMenuItem.Size = new System.Drawing.Size(139, 20);
             this.спеціальніМоливостіToolStripMenuItem.Text = "Спеціальні моливості";
@@ -156,11 +156,13 @@
             this.findToolStripMenuItem.Text = "Пошук";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
-            // частотаСлівToolStripMenuItem
+            // frequencyWordToolStripMenuItem
             // 
-            this.частотаСлівToolStripMenuItem.Name = "частотаСлівToolStripMenuItem";
-            this.частотаСлівToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.частотаСлівToolStripMenuItem.Text = "Частота слів";
+            this.frequencyWordToolStripMenuItem.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.frequencyWordToolStripMenuItem.Name = "frequencyWordToolStripMenuItem";
+            this.frequencyWordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frequencyWordToolStripMenuItem.Text = "Частота слів";
+            this.frequencyWordToolStripMenuItem.Click += new System.EventHandler(this.frequencyWordToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -203,7 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem спеціальніМоливостіToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem частотаСлівToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frequencyWordToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
