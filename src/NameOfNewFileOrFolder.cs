@@ -16,8 +16,8 @@ namespace _0001_Forms
         private const int MAX_PATH = 260;
         private const string WRONG_SYMBOLS_WARNING = "Ім'я не може містити \\ / : * ? \" < > | \nБути пустим чи містити лише пропуски.";
         private const string LONG_NAME_WARNING = "Ім'я не може складатися з більше ніж більше 260 символів.";
-        public const int FOLDER = 0;
-        public const int TEXT_FILE = 1;
+        public const int FOLDER = 1;
+        public const int TEXT_FILE = 3;
 
         FileManagerActions fmAction = new FileManagerActions();
         private char[] forbiddenSymbols = { '\\', '/', ':', '*', '?', '"', '<', '>', '|' }; 

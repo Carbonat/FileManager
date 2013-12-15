@@ -14,13 +14,17 @@ namespace _0001_Forms
         public const string txt = "txt";
         public const string TXT = "TXT";
         public const int FIRST_ELEMENT = 0;
+        public const int INDEX_OF_TYPE_SUBITEM = 1;
         public const int LOCAL_DISK_ICON = 0;
         public const int DIRECTORY_ICON = 1;
         public const int FILE_ICON = 2;
         public const int TEXT_FILE_ICON = 3;
-        public const int FOLDER = 0;
-        public const int TEXT_FILE = 1;
-        public const int DRIVE_NAME_LENGTH = 4;
+
+        public const int DRIVE = 0;
+        public const int FOLDER = 1;
+        public const int FILE = 2;
+        public const int TEXT_FILE = 3;
+        
        
 
 
@@ -213,17 +217,27 @@ namespace _0001_Forms
 
         public void GetInfo(ListView list, string path)
         {
-            string item = list.SelectedItems[FIRST_ELEMENT].Text;
-            if (item.Length == DRIVE_NAME_LENGTH)
+            string item = list.SelectedItems[FIRST_ELEMENT].Text;//виділений елемент
+            string typeSubItem = list.SelectedItems[FIRST_ELEMENT].SubItems[INDEX_OF_TYPE_SUBITEM].Text;//get type of file
+            if (String.IsNullOrWhiteSpace(item))//free space in listView
             {
-
+                MessageBox.Show("Ви не вибрали жоден елемент.", "Увага");
             }
-            string triedOpenDir = path + item + "\\";
-            
-
-
+            else if (String.IsNullOrWhiteSpace(path))//selected driver
+            {
+                Info info = new Info(path, item, DRIVE);
+                info.ShowDialog();
+            }
+            else if (String.IsNullOrWhiteSpace(typeSubItem))//selected item is folder
+            {
+                Info info = new Info(path, item, FOLDER);
+                info.ShowDialog();
+            }
+            else
+            {
+                Info info = new Info(path, item + "." + typeSubItem, FILE);
+                info.ShowDialog();
+            }
         }
-   
-
     }
 }

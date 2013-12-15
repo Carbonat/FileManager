@@ -17,6 +17,7 @@ namespace _0001_Forms
         public const int NUMBER_OF_LISTVIEWS = 2;
         public const int INDEX_OF_LEFT_LIST = 0;
         public const int INDEX_OF_RIGHT_LIST = 1;
+        public const int INDEX_OF_TYPE_SUBITEM = 1;
         public const string LEFT_LIST = "0";
         public const string RIGHT_LIST = "1";
 
@@ -26,6 +27,7 @@ namespace _0001_Forms
 
         //items of contextMenuStrip (name can be different)
         public const string CREATE_CONTEXT_MENU = "createToolStripMenuItem";
+        public const string INFO_CONTEXT_MENU = "infoToolStripMenuItem";
 
         private string[] currentPath = new String[NUMBER_OF_LISTVIEWS];
         private string copyPath = "";
@@ -71,29 +73,37 @@ namespace _0001_Forms
             string name = contr.SourceControl.Name;
             selectedList = int.Parse(name);
             //local drivers
-            if (allListViews[selectedList].SelectedItems.Count == 0 && currentPath[selectedList] == "")
+            if (allListViews[selectedList].SelectedItems.Count == 0 && String.IsNullOrWhiteSpace(currentPath[selectedList]))
             {
                 contextMenuStrip.Items[CREATE_CONTEXT_MENU].Visible = false;
-
+                contextMenuStrip.Items[INFO_CONTEXT_MENU].Visible = false;
             }
             //free space in listView
             else if (allListViews[selectedList].SelectedItems.Count == 0)
             {
                 contextMenuStrip.Items[CREATE_CONTEXT_MENU].Visible = true;
+                contextMenuStrip.Items[INFO_CONTEXT_MENU].Visible = false;
             }
             //selected txt file
             else if (allListViews[selectedList].SelectedItems.Count == 1 &&
-                        (allListViews[selectedList].SelectedItems[FIRST_ELEMENT].Text.EndsWith(TXT) ||
-                         allListViews[selectedList].SelectedItems[FIRST_ELEMENT].Text.EndsWith(txt)))
+                        (allListViews[selectedList].SelectedItems[FIRST_ELEMENT].SubItems[INDEX_OF_TYPE_SUBITEM].Text.Equals("TXT")||
+                         allListViews[selectedList].SelectedItems[FIRST_ELEMENT].SubItems[INDEX_OF_TYPE_SUBITEM].Text.Equals("txt")))
             {
                 contextMenuStrip.Items[CREATE_CONTEXT_MENU].Visible = false;
+                contextMenuStrip.Items[INFO_CONTEXT_MENU].Visible = true;
 
             }
             //selected folder or not txt file
             else if (allListViews[selectedList].SelectedItems.Count == 1)
             {
                 contextMenuStrip.Items[CREATE_CONTEXT_MENU].Visible = false;
-
+                contextMenuStrip.Items[INFO_CONTEXT_MENU].Visible = true;
+            }
+            //selected few items
+            else
+            {
+                contextMenuStrip.Items[CREATE_CONTEXT_MENU].Visible = false;
+                contextMenuStrip.Items[INFO_CONTEXT_MENU].Visible = false;
             }
         }
 
